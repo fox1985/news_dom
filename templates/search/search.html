@@ -1,0 +1,170 @@
+<div class="py-5">
+      <div class="container">
+          {#  поиск  #}
+        <form class="row mb-5" action="{% url 'search_results' %}" method="get">
+
+         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+              <select name="category"  class="form-control d-block rounded-0">
+                <option value="">Вид недвижимости</option>
+                <option value="Квартиры">Квартиры</option>
+                  <option value="Бунгало">Бунгало</option>
+                  <option value="Виллы">Виллы</option>
+                  <option value="Таунхаус">Таунхаус</option>
+                  <option value="НОВОСТРОЙ">НОВОСТРОЙ</option>
+              </select>
+            </div>
+          </div>
+
+         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+              <select name="city"  class="form-control d-block rounded-0">
+                <option value="">Город</option>
+                <option value="Торревьеха">Торревьеха</option>
+                <option value="Ориуэла Костра">Ориуэла Костра</option>
+                  <option value="Гуардамар-дель-Сегура">Гуардамар-дель-Сегура</option>
+                  <option value="Бенидорм">Бенидорм</option>
+                  <option value="Съюдад Кесада">Съюдад Кесада</option>
+                  <option value="Рохалес">Рохалес</option>
+                  <option value="Мурсия">Мурсия</option>
+                  <option value="Аликанте">Аликанте</option>
+              </select>
+            </div>
+          </div>
+
+
+         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+              <select name="bedrooms"  class="form-control d-block rounded-0">
+                <option value="">спальни</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5+">5</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+              <select name="bathrooms"  class="form-control d-block rounded-0">
+                <option value="">Санузел</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5+">5</option>
+              </select>
+            </div>
+          </div>
+
+           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+
+              <select name="min_price"  class="form-control d-block rounded-0">
+              <option value="">цена от</option>
+                    {% for listing in listings %}
+                        <option value="{{ listing.price }}">{{ listing.price }}</option>
+                    {% endfor %}
+              </select>
+
+            </div>
+          </div>
+
+
+
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="select-wrap">
+              <span class="icon icon-arrow_drop_down"></span>
+
+              <select name="max_price"  class="form-control d-block rounded-0">
+              <option value="">цена до</option>
+                    {% for listing in listings %}
+                        <option value="{{ listing.price }}">{{ listing.price }}</option>
+                    {% endfor %}
+              </select>
+
+            </div>
+          </div>
+
+
+
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="select-wrap">
+                    <span class="icon icon-arrow_drop_down"></span>
+                    <select name="sqft"  class="form-control d-block rounded-0">
+                    <option value="">Площадь участка</option>
+                          {% for listing in listings %}
+                              <option value="{{ listing.sqft }}">{{ listing.sqft }}</option>
+                        {% endfor %}
+
+                    </select>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+              <div class="mb-4">
+
+              </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <input type="submit" class="btn btn-primary btn-block form-control-same-height rounded-0" value="Поиск">
+          </div>
+
+        </form>
+          {#  поиск  #}
+
+          <!--текст поиск--->
+{#          <div class="row">#}
+{#          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">#}
+{#            <div class="feature d-flex align-items-start">#}
+{#              <span class="icon mr-3 flaticon-house"></span>#}
+{#              <div class="text">#}
+{#                <h2 class="mt-0">Широкий спектр свойств</h2>#}
+{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+
+{#          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">#}
+{#            <div class="feature d-flex align-items-start">#}
+{#              <span class="icon mr-3 flaticon-rent"></span>#}
+{#              <div class="text">#}
+{#                <h2 class="mt-0">Аренда или продажа</h2>#}
+{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">#}
+{#            <div class="feature d-flex align-items-start">#}
+{#              <span class="icon mr-3 flaticon-location"></span>#}
+{#              <div class="text">#}
+{#                <h2 class="mt-0">Расположение недвижимости</h2>#}
+{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.</p>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+
+      </div>
+    </div>

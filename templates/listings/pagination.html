@@ -1,0 +1,31 @@
+
+
+<div class="container">
+    <div class="col-md-12 text-center">
+
+        <div class="site-pagination">
+              {% for page in listings.paginator.page_range  %}
+                  {% if page == listings.number %}
+                   <a href="?page={{ page }}" class="active">{{ page }}</a>
+                  {% else %}
+                      <a href="?page={{ page }}">{{ page }}</a>
+                  {% endif %}
+              {% endfor %}
+
+                {% if listings.has_next %}
+                   <a href="?page={{ listings.next_page_number }}">&raquo;</a>
+
+                {% else %}
+
+                 <span>&#8230;</span>
+             {% endif %}
+
+
+            </div>
+          </div>
+        </div>
+
+</div>
+</div>
+
+

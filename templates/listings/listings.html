@@ -1,0 +1,125 @@
+ {% extends 'base.html' %}
+
+{% load static i18n %}
+{% load humanize %}
+
+  {% block content %}
+       <!--Поиск--->
+    {% include 'search/search.html' %}
+
+      <!-- Breadcrumb -->
+{% if request.user.is_authenticated %}
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'logout' %}">
+              <i class="fas fa-home"></i></a>
+          </li>
+
+
+          <li class="breadcrumb-item active">{% trans 'Просмотр списков' %} </li>
+
+            <li class="breadcrumb-item">
+                 {# Авторизированый пользователь да или нет #}
+                <a href="{% url 'new_page' %}">{% trans 'Добавить' %}</a>
+            </li>
+
+            
+
+        </ol>
+      </nav>
+    </div>
+  </section>
+{% endif %}
+
+
+<!---Новые свойства для вас-->
+    <!-- Оповещения -->
+      {% include 'partials/_alerts.html' %}
+
+    <div class="site-section site-section-sm bg-light">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="site-section-title">
+              <h2>{% trans 'КАТАЛОГ НЕДВИЖИМОСТИ В ИСПАНИИ' %}</h2>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row mb-5">
+            {% if listings %}
+             {% for listing in listings %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="{{ listing.get_absolute_url }}" class="prop-entry d-block">
+              <figure>
+                <img src="{{ listing.photo_main.url }}" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">€{{ listing.price }}</span>
+                  <h3 class="title">{{ listing.title }}</h3>
+                </div>
+
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                        {% if listing.sqft %}
+                         <span>{% trans 'Площадь:' %}</span>
+                         <strong>{{ listing.sqft }}м<sup>2</sup></strong>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                      {% if listing.bedrooms %}
+                      <span>{% trans 'Спальни:' %}</span>
+                      <strong>{{ listing.bedrooms }}</strong>
+                      {% endif %}
+                    </div>
+                    <div class="col">
+                        {% if listing.bathrooms %}
+                      <span>{% trans 'Ванны:' %}</span>
+                      <strong>{{ listing.bathrooms }}</strong>
+                        {% endif %}
+                    </div>
+
+                    <div class="col">
+                     {% if listing.garage %}
+                      <span>{% trans 'Гаражи:' %}</span>
+                      <strong>{{ listing.garage }}</strong>
+                     {% endif %}
+                    </div>
+
+                   <div class="col">
+                     {% if listing.floors %}
+                      <span>{% trans 'Этаж:' %}</span>
+                      <strong>{{ listing.floors }}</strong>
+                     {% endif %}
+                    </div>
+
+                   <div class="col">
+                     {% if listing.rooms%}
+                      <span>{% trans 'Комнат:' %}</span>
+                      <strong>{{ listing.rooms }}</strong>
+                     {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+
+        <!---Новые свойства для вас-->
+            {% endfor %}
+
+            {% else %}
+              <div class="col-md-12">
+              <p>{% trans 'Нет доступных объявлений' %}</p>
+              </div>
+
+             {% endif %}
+
+        {% endblock %}

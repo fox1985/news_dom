@@ -1,0 +1,44 @@
+{% load listings_tag %}
+
+{% load static i18n %}
+<div class="row mb-5">
+    {% for r in reals %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <a href="{% url 'listing' listing.id %}" class="prop-entry d-block">
+              <figure>
+                <img src="{{ r.photo_main.url }}" alt="Image" class="img-fluid">
+              </figure>
+              <div class="prop-text">
+                <div class="inner">
+                  <span class="price rounded">€{{ r.price }}</span>
+                  <h3 class="title">{{ r.title }}</h3>
+                </div>
+
+                <div class="prop-more-info">
+                  <div class="inner d-flex">
+                    <div class="col">
+                      <span>{% trans 'Площадь:' %}</span>
+                      <strong>{{ r.sqft }}m<sup>2</sup></strong>
+                    </div>
+                    <div class="col">
+                      <span>{% trans 'Спальни:' %}</span>
+                      <strong>{{ r.bedrooms }}</strong>
+                    </div>
+                    <div class="col">
+                      <span>{% trans 'Ванны:' %}</span>
+                      <strong>{{ r.bathrooms }}</strong>
+                    </div>
+                    <div class="col">
+                      <span>{% trans 'Гаражи:' %}</span>
+                      <strong>{{ r.garage }}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+
+        {% endfor %}
+
+        <!---Новые свойства для вас-->

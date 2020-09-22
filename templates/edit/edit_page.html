@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static i18n %}
+
+ {% block content %}
+<div class="container">
+  <p>{% trans 'Редактировать страницу' %}</p>
+        <div class="col-md-6">
+        <form action="" method="POST" enctype="multipart/form-data">
+                         {% csrf_token %}
+                         <br>
+                        {{ form|crispy }}
+
+                            <br>
+                         <button name="submit">{% trans 'Сохранить' %}</button>
+
+                     </form>
+
+        </div>
+
+</div>
+
+ {% endblock %}
+
+
