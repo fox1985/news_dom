@@ -8,9 +8,4 @@ django-ranged-response==0.2.0
 django-simple-captcha==0.5.12
 mysqlclient==2.0.1
 Pillow==7.2.0
-pkg-resources==0.0.0
-protobuf==3.13.0
-pytz==2020.1
-reverse==0.1.0
-six==1.15.0
-sqlparse==0.3.1
+
