@@ -6,6 +6,5 @@ django-google-translate==1.1
 django-modeltranslation==0.15.2
 django-ranged-response==0.2.0
 django-simple-captcha==0.5.12
-mysqlclient==2.0.1
 Pillow==7.2.0
 
