@@ -158,7 +158,7 @@ MESSAGE_TAGS = {
 }
 
 #Настрака формы обратная связи
-from news_dom.emailsettings import *
+#from news_dom.emailsettings import *
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
