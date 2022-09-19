@@ -28,6 +28,10 @@ body {
     border-radius: 0.25rem;
 }
 
+.img-fluid {
+  width:500px;
+  height: auto;
+}
 
 
 a {
