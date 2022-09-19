@@ -32,7 +32,7 @@
           <div class="col-md-10">
             <span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded"></span>
             <h1 class="mb-2">{{ listing.title }}</h1>
-            <p class="mb-5"><strong class="h2 text-success font-weight-bold">€{{ listing.price}}</strong></p>
+            <p class="mb-5"><strong class="h2 text-success font-weight-bold">€{{ listing.price |intcomma}}</strong></p>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
             <div class="bg-white">
               <div class="row mb-5">
                 <div class="col-md-6">
-                  <strong class="text-success h1 mb-3">€{{ listing.price}}</strong>
+                  <strong class="text-success h1 mb-3">€{{ listing.price |intcomma}}</strong>
                 </div>
 
 
