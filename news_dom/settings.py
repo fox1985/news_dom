@@ -141,13 +141,15 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.expanduser('static'), 'domains/torrehome.ru/static/')
+#STATIC_ROOT = os.path.join(os.path.expanduser('static'), 'domains/torrehome.ru/static/')
+
 MEDIA_URL = '/media/upload/'
 
 
-#Загрузка файлов
+#Загрузка файлов локально
 
-MEDIA_ROOT = os.path.join(os.path.expanduser('static'), 'domains/torrehome.ru/static/media/upload/')
+#MEDIA_ROOT = os.path.join(os.path.expanduser('static'), 'domains/torrehome.ru/static/media/upload/')
+MEDIA_ROOT = os.path.join(os.path.expanduser('static'), 'media/upload/')
 
 
 

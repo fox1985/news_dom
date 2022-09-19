@@ -2,7 +2,7 @@
 .idea/
 .vscode/
 copy/
-media/
+static/media/
 static/
 *db.sqlite3
 *.pyc
